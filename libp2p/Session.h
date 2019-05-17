@@ -177,7 +177,12 @@ private:
 
     std::set<std::string> m_disabledCapabilities;
 
-    std::string const m_logContext;
+    Logger m_netLogger{ createLogger(VerbosityDebug, "net") };
+    Logger m_netDetailLogger{ createLogger(VerbosityTrace, "net") };
+    Logger m_netErrorLogger{ createLogger(VerbosityError, "net") };
+
+    Logger m_capLogger{ createLogger(VerbosityDebug, "p2pcap") };
+    Logger m_capDetailLogger{ createLogger(VerbosityTrace, "p2pcap") };
 };
 
 }
